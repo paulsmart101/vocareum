@@ -1,0 +1,52 @@
+import requests, json
+search_for = "banana@gmail.com"
+headers = {
+    'Authorization': 'Token <banana>'
+}
+payload = {
+    "size":"10", #won't go over 10
+    "page":"1"
+}
+
+# Request the total number of courses
+url = 'https://labs.vocareum.com/api/v2/courses'
+response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
+parsed = json.loads(response.text)
+total_courses = int(parsed['total_records'])
+print('Total courses:',total_courses)
+
+# Calculate how many loops are required to iterate through all the courses
+size = 10
+page = 1 # Starting page
+whole_loops = total_courses//size
+course_ids = []
+
+# Iterate through the courses 10 at a time
+while page <= whole_loops:
+    # Retrieve the next page of 10 courses
+    url = 'https://labs.vocareum.com/api/v2/courses'
+    payload = {'page':page}
+    response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
+    parsed = json.loads(response.text)
+    
+    # Loop through the 10 courses
+    for course in parsed['courses']:
+        
+        # Display progress
+        print(".", end=" ")
+        
+        # Request list of students in the course
+        url = 'https://labs.vocareum.com/api/v2/courses/'+course['id']+'/users?role=student&include_dropped=false'
+        payload = {}
+        response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
+        parsed = json.loads(response.text)
+        
+        # Loop through the students
+        for user in parsed['users']:
+            if user['email'] == search_for:
+                print("\nFound user",search_for,"in course",course['name'],"(ID:"+course['id'],")")
+                course_ids.append(course['id'])
+    page = page+1
+    
+print("\nfinished")
+print(course_ids)
