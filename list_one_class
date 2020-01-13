@@ -1,0 +1,7 @@
+import requests, json
+url = 'https://labs.vocareum.com/api/v2/courses/4319'
+payload = {}
+headers = {'Authorization': 'Token <banana>'}
+response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
+parsed = json.loads(response.text)
+print(json.dumps(parsed, indent=4, sort_keys=True))
