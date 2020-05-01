@@ -7,9 +7,9 @@
 
 
 import requests, json
-search_for = "paulsmart101@gmail.com"
+search_for = "paulsmart101@example.com"
 headers = {
-    'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'
+    'Authorization': 'Token abcd'
 }
 payload = {
     "size":"10", #won't go over 10
@@ -68,7 +68,7 @@ print(course_ids)
 import requests, json
 url = 'https://labs.vocareum.com/api/v2/courses/7706'
 payload = {}
-headers = {'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'}
+headers = {'Authorization': 'Token abc'}
 response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
 parsed = json.loads(response.text)
 print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -82,7 +82,7 @@ print(json.dumps(parsed, indent=4, sort_keys=True))
 import requests, json
 url = 'https://labs.vocareum.com/api/v2/courses/4319/assignments'
 payload = {}
-headers = {'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'}
+headers = {'Authorization': 'Token abc'}
 response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
 parsed = json.loads(response.text)
 print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -96,7 +96,7 @@ print(json.dumps(parsed, indent=4, sort_keys=True))
 import requests, json
 url = 'https://labs.vocareum.com/api/v2/courses/4319/assignments/47296'
 payload = {}
-headers = {'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'}
+headers = {'Authorization': 'Token abc'}
 response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
 parsed = json.loads(response.text)
 print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -110,7 +110,7 @@ print(json.dumps(parsed, indent=4, sort_keys=True))
 import requests, json
 url = 'https://labs.vocareum.com/api/v2/courses/4319/assignments/47296/parts'
 payload = {}
-headers = {'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'}
+headers = {'Authorization': 'Token abc'}
 response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
 parsed = json.loads(response.text)
 print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -124,7 +124,7 @@ print(json.dumps(parsed, indent=4, sort_keys=True))
 import requests, json
 url = 'https://labs.vocareum.com/api/v2/courses/4319/assignments/47296/parts/47297'
 payload = {}
-headers = {'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'}
+headers = {'Authorization': 'Token abc'}
 response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
 parsed = json.loads(response.text)
 print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -138,7 +138,7 @@ print(json.dumps(parsed, indent=4, sort_keys=True))
 import requests, json
 url = 'https://labs.vocareum.com/api/v2/courses/4319/assignments/47296/parts/47297/resources/290120'
 payload = {}
-headers = {'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'}
+headers = {'Authorization': 'Token abc'}
 response = requests.request('GET', url, headers = headers, data = payload, allow_redirects=False)
 parsed = json.loads(response.text)
 print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -152,7 +152,7 @@ print(json.dumps(parsed, indent=4, sort_keys=True))
 import requests, json
 class_id = "7706" #Identifier for the class
 headers = {
-    'Authorization': 'Token af39bb35c913794279d3f59c784b698b2d3f64df'
+    'Authorization': 'Token abc'
 }
 payload = {
     "size":"10", #won't go over 10
